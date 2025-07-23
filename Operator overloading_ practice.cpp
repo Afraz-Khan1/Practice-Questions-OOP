@@ -9,7 +9,12 @@ cout<<" copy constructor called"<<endl;
 x=z.x;
 y=z.y;
 }
-number operator +(const number& v){
+number&  operator =(const number& v){
+    x=v.x;
+    y=v.y;
+return *this ;
+}
+number operator +(const number& v){ // ()const{} why we didn't do this. as we are returning new obj of number class named temp so we can put const cuz method not modify current obj but returns a new obj.
     number temp;
     temp.x=x+v.x;
     temp.y=y+v.y;

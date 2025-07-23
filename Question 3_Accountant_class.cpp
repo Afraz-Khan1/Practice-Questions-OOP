@@ -15,7 +15,8 @@ account_balance=balance;
 void display(){
     cout<<" Details: "<<endl<<"Account number: "<<account_number<<endl<<"Security code: "<<security_code<<endl<<"Account balance: "<<account_balance<<endl;
 }
-static int getcount(){
+static int getcount(){ // static method are helpfull when there is no obj to access a data. they allow accessing the staic value without an obj, they only work for static variable. but non static
+    // work for both non and static member and can also return a static member but they need an obj for it.
     return count;
 }
 ~accountant(){

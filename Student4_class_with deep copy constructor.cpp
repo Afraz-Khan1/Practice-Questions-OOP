@@ -15,7 +15,7 @@ strcpy(name,n);
 student(const student& obj){
 roll=new int;
 *roll=*obj.roll;
-semester=new int(*obj.semester);
+semester=new int(*obj.semester); // new memory allocated in copy constructor becuase each object has to get its independent copy thats why its called deep copy
 name=new char[strlen(obj.name)+1];
 strcpy(name,obj.name); // charcter pointer is this *name *n but string pointer is name it will point the whole string
 
@@ -30,8 +30,9 @@ int getsem(){
     return *semester;
 }
 void setdetails(int r,int sem,const char *n){
-      // here no validation check is need that if pointer is null dont delete as its okay to delete a null pointer in this case of program
-    strcpy(name,n); // it will copy new values to the same memory allocated in default constructor or parametrized
+      // here if you copying new string in previous memory and if the new string is larger than previouse space than it will go bufferoverflow and undefined behavour instead delete prevous memory
+      // and allocate new memory and than copy for preventing bufferoverflow
+    strcpy(name,n);
     *roll=r;
     *semester=sem;
 }
